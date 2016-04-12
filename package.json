@@ -1,6 +1,6 @@
 {
   "name": "rebel-loading",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple web component to display a loading spinner.",
   "repository": "https://github.com/RevillWeb/rebel-loading.git",
   "main": "lib/rebel-loading.js",
