@@ -4,9 +4,10 @@
  * GitHub: https://github.com/RevillWeb
  * Twitter: @RevillWeb
  */
-export class RebelLoading extends HTMLElement {
-    createdCallback() {
-        this.createShadowRoot();
+class RebelLoading extends HTMLElement {
+    connectedCallback() {
+        this._hidden = true;
+        this.attachShadow({"mode": "open"});
         this.backgroundColor = this.getAttribute("background-color") || "#FFF";
         this.color = this.getAttribute("color") || "#000";
         this.shadowRoot.innerHTML = `
@@ -64,10 +65,22 @@ export class RebelLoading extends HTMLElement {
     }
     show() {
         this.shadowRoot.querySelector(".loader").className = "loader";
+        this._hidden = false;
     }
     hide() {
         this.shadowRoot.querySelector('.loader').className = "loader hidden";
+        this._hidden = true;
+    }
+    toggle() {
+        if (this._hidden === true) {
+            this.show();
+        } else {
+            this.hide();
+        }
+    }
+    ishidden() {
+        return this._hidden;
     }
 }
 
-document.registerElement('rebel-loading', RebelLoading);
+window.customElements.define('rebel-loading', RebelLoading);

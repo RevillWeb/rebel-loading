@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rebel Repeater Demo</title>
+    <script src="https://unpkg.com/skatejs-web-components/dist/index-with-deps.min.js"></script>
+    <script src="dist/rebel-loading.js"></script>
+    <style>
+        .frame {
+            width: 250px;
+            height: 250px;
+            margin: 50px auto;
+            border: solid 2px #333;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">Toggle</button>
+    <div class="frame">
+        <rebel-loading id="loader"></rebel-loading>
+    </div>
+    <script>
+        document.querySelector("#btn").addEventListener("click", function(){
+            document.querySelector("#loader").toggle();
+        });
+    </script>
+</body>
+</html>
